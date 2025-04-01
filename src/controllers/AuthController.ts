@@ -1,5 +1,5 @@
-import { Route, Post, Body, Tags } from 'tsoa';
-import { UserModel } from '../models/User';
+import { Route, Post, Body, Tags, Get } from 'tsoa';
+import { User, UserModel } from '../models/User';
 import { ISignUpInput } from '../schemas/auth';
 
 @Tags('Auth')
@@ -16,6 +16,15 @@ export class AuthController {
 
     return {
       message: 'User saved successfully',
+    };
+  }
+
+  @Get('/users')
+  public async users() {
+    const users = UserModel.find().lean();
+    return {
+      message: 'User saved successfully',
+      data: users as unknown as User[],
     };
   }
 }
