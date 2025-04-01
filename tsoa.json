@@ -1,0 +1,31 @@
+{
+  "entryFile": "src/index.ts",
+  "noImplicitAdditionalProperties": "throw-on-extras",
+  "controllerPathGlobs": ["src/controllers/**/*.ts"],
+  "basePath": "/api/v1",
+  "spec": {
+    "outputDirectory": "./public",
+    "specVersion": 3,
+    "specMerging": "recursive",
+    "spec": {
+      "info": {
+        "title": "MD Exchange API",
+        "description": "API for managing MD Exchange operations",
+        "version": "1.0.0"
+      },
+      "servers": [
+        {
+          "url": "http://localhost:3500",
+          "description": "localhost dev"
+        },
+        {
+          "url": "https://my-talent-connect.vercel.app",
+          "description": "testing"
+        }
+      ]
+    }
+  },
+  "routes": {
+    "routesDir": "./public"
+  }
+}
