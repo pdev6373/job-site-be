@@ -15,23 +15,7 @@ const server = createServer(app);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-const allowedOrigins = [
-  'https://my-talent-connect.vercel.app/',
-  'https://www.my-talent-connect.vercel.app/',
-];
-app.use(
-  cors({
-    origin: (
-      origin: string | undefined,
-      callback: (err: Error | null, allow?: boolean) => void,
-    ) => {
-      if (!origin || allowedOrigins.includes(origin)) callback(null, true);
-      else callback(new Error('Not allowed by CORS'));
-    },
-    credentials: true,
-    optionsSuccessStatus: 200,
-  }),
-);
+app.use(cors());
 app.use(morgan('common'));
 
 RegisterRoutes(app);
