@@ -15,7 +15,12 @@ const server = createServer(app);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(cors());
+app.use(
+  cors({
+    origin: '*',
+    optionsSuccessStatus: 200,
+  }),
+);
 app.use(morgan('common'));
 
 RegisterRoutes(app);
