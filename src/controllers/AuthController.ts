@@ -23,10 +23,10 @@ export class AuthController {
 
   @Get('/users')
   public async users() {
-    const users = UserModel.find().lean();
+    const users = await UserModel.find();
     return {
       message: 'User saved successfully',
-      data: users as unknown as User[],
+      data: users as User[],
     };
   }
 }
