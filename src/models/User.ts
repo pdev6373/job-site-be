@@ -6,6 +6,12 @@ export class User {
 
   @prop({ required: true })
   public password!: string;
+
+  @prop()
+  public longitude?: number;
+
+  @prop()
+  public latitude?: number;
 }
 
 export const UserModel = getModelForClass(User, {

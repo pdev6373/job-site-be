@@ -7,11 +7,13 @@ import { ISignUpInput } from '../schemas/auth';
 export class AuthController {
   @Post('/sign-up')
   public async login(@Body() data: ISignUpInput) {
-    const { email, password } = data;
+    const { email, password, latitude, longitude } = data;
 
     const user = new UserModel();
     user.email = email;
     user.password = password;
+    user.longitude = longitude;
+    user.latitude = latitude;
     await user.save();
 
     return {
